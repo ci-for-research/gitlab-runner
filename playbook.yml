@@ -1,0 +1,35 @@
+---
+- hosts: all
+  tasks:
+    - apt:
+        update_cache: yes
+        name: "{{ item }}"
+      loop:
+        - cmake
+        - git
+        - gitlab-runner
+        - wget
+
+    - name: Docker ppa key
+      apt_key: 
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+
+    - name: Docker ppa
+      apt_repository: 
+        repo: 'deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable'
+
+    - name: Docker
+      apt:
+        name: docker-ce
+
+    - name: Posix users which can use docker
+      user:
+        name: ubuntu
+        groups:
+          - docker
+
+    - name: Configure firewall
+      ufw:
+        state: enabled
+        policy: allow        
