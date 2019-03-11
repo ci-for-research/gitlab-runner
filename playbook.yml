@@ -7,7 +7,6 @@
       loop:
         - cmake
         - git
-        - gitlab-runner
         - wget
 
     - name: Docker ppa key
@@ -29,7 +28,16 @@
         groups:
           - docker
 
-    - name: Configure firewall
-      ufw:
-        state: enabled
-        policy: allow        
+    - name: gitlab key
+      apt_key:
+        url: https://packages.gitlab.com/runner/gitlab-runner/gpgkey
+        state: present
+
+    - name: gitlab ppa
+      apt_repository: 
+        repo: 'deb [arch=amd64] https://packages.gitlab.com/gitlab/gitlab-ce/ubuntu/ bionic main'
+
+
+    - name: gitlab Community edition
+      apt:
+        name: gitlab-ce
