@@ -1,0 +1,1 @@
+145.100.58.208 ansible_user=ubuntu ansible_become=yes
