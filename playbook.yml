@@ -28,16 +28,24 @@
         groups:
           - docker
 
-    - name: gitlab key
-      apt_key:
-        url: https://packages.gitlab.com/runner/gitlab-runner/gpgkey
-        state: present
+    - name: gitlab
+      get_url:
+        url: https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh
+        dest: /tmp/gitlab_script.sh
 
-    - name: gitlab ppa
-      apt_repository: 
-        repo: 'deb [arch=amd64] https://packages.gitlab.com/gitlab/gitlab-ce/ubuntu/ bionic main'
-
+    - name: install gitlab runner
+      shell: bash /tmp/gitlab_script.sh
 
     - name: gitlab Community edition
       apt:
-        name: gitlab-ce
+        name: gitlab-runner
+
+    - name: Register runner to GitLab
+      command: gitlab-runner register >
+      --non-interactive
+      --url "https://gitlab.com/"
+      --registration-token '{{ gitlab_runner_registration_token }}'
+      --description "gitlab_runner for the NLeSC-JCER projects"
+      --tag-list "docker,nlescjcer"
+      --executor "docker"
+      --docker-image alpine:3
