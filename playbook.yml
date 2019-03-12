@@ -1,5 +1,8 @@
 ---
 - hosts: all
+  vars_prompt:
+    - name: "gitlabci_token"
+      prompt: "Gitlab-runner Token: "
   tasks:
     - apt:
         update_cache: yes
@@ -42,10 +45,10 @@
 
     - name: Register runner to GitLab
       command: gitlab-runner register >
-      --non-interactive
-      --url "https://gitlab.com/"
-      --registration-token '{{ gitlab_runner_registration_token }}'
-      --description "gitlab_runner for the NLeSC-JCER projects"
-      --tag-list "docker,nlescjcer"
-      --executor "docker"
-      --docker-image alpine:3
+        --non-interactive
+        --url "https://gitlab.com/"
+        --registration-token '{{ gitlabci_token }}'
+        --description "gitlab_runner for the NLeSC-JCER projects"
+        --tag-list "docker,nlescjcer"
+        --executor "docker"
+        --docker-image alpine:3
