@@ -1,3 +1,1 @@
 gitlabci.ci-nlesc.surf-hosted.nl ansible_user=ubuntu ansible_become=yes
-# Alternative hostname
-# 145.100.58.208 ansible_user=ubuntu ansible_become=yes
