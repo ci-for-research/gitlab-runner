@@ -1,5 +1,6 @@
-# Config gitlab-runner
-Repo to install and configure a [gitlab-runner](https://docs.gitlab.com/runner/) using [ansible](https://www.ansible.com/).
+## Configure a customized continuos integration service using GitlabCI
+
+This repository contains a recipe to use the [Gitlab CI/CD infrastucture](https://docs.gitlab.com/ee/ci/README.html) with a Github repository.The recipe installs and configures a [gitlab-runner](https://docs.gitlab.com/runner/) using [ansible](https://www.ansible.com/).
 
 ## Step to install register a GitLab Runner
 Before going trhrough the following steps, make sure that you have a [gitlab account](https://about.gitlab.com/) then follow the instructions described at using the [Gitlab CI/CD with Github](https://docs.gitlab.com/ee/ci/ci_cd_for_external_repos/github_integration.html).
@@ -13,3 +14,6 @@ Before going trhrough the following steps, make sure that you have a [gitlab acc
 
 ## Note:
 *The script will ask you for a token for your new runner, you can find such token in the configuration of the CI/CD at the mirror repository that Gitlab automatically create for you. See the [configuration instructions](https://docs.gitlab.com/ee/ci/runners/#registering-a-specific-runner-with-a-project-registration-token).*
+
+### Tags
+*GitlabCI* makes use of [tags](https://docs.gitlab.com/ee/ci/yaml/#tags) to select specific runner from the available pool. You can create your own tag to name your `gitlab-runner` and use it as default.
