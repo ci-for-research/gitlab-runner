@@ -1,1 +1,1 @@
-gitlabci.ci-nlesc.surf-hosted.nl ansible_user=ubuntu ansible_become=yes
+gitlabci.ci-nlesc.surf-hosted.nl

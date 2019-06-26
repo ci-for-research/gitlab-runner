@@ -3,6 +3,8 @@
   vars_prompt:
     - name: "gitlabci_token"
       prompt: "Gitlab-runner Token: "
+  remote_user: ubuntu
+  become: yes
   tasks:
     - apt:
         update_cache: yes
@@ -27,7 +29,7 @@
 
     - name: Posix users which can use docker
       user:
-        name: ubuntu
+        name: "{{ ansible_user }}"
         groups:
           - docker
 
