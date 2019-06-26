@@ -3,7 +3,7 @@
 This repository contains a recipe to use the [Gitlab CI/CD infrastucture](https://docs.gitlab.com/ee/ci/README.html) with a Github repository.The recipe installs and configures a [gitlab-runner](https://docs.gitlab.com/runner/) using [ansible](https://www.ansible.com/).
 
 ## Step to install register a GitLab Runner
-Before going trhrough the following steps, make sure that you have a [gitlab account](https://about.gitlab.com/) then follow the instructions described at using the [Gitlab CI/CD with Github](https://docs.gitlab.com/ee/ci/ci_cd_for_external_repos/github_integration.html).
+Before going through the following steps, make sure that you have a [gitlab account](https://about.gitlab.com/) then follow the instructions described at using the [Gitlab CI/CD with Github](https://docs.gitlab.com/ee/ci/ci_cd_for_external_repos/github_integration.html).
 
 1. Install [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html) in your computer.
 2. Clone [this repo](https://github.com/NLESC-JCER/gitlab_runner).
