@@ -51,6 +51,5 @@
         --url "https://gitlab.com/"
         --registration-token '{{ gitlabci_token }}'
         --description "gitlab_runner for the NLeSC-JCER projects"
-        --tag-list "docker,nlescjcer"
         --executor "docker"
         --docker-image alpine:3
